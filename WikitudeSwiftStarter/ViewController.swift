@@ -9,32 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController, WTArchitectViewDelegate{
-    private var architectView:WTArchitectView?
-    private var architectWorldNavigation:WTNavigation?
+    fileprivate var architectView:WTArchitectView?
+    fileprivate var architectWorldNavigation:WTNavigation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            try WTArchitectView.isDeviceSupportedForRequiredFeatures(WTFeatures._2DTracking)
+            try WTArchitectView.isDeviceSupported(forRequiredFeatures: WTFeatures._2DTracking)
             architectView = WTArchitectView(frame: self.view.frame)
             architectView?.delegate = self
-            add license here : architectView?.setLicenseKey("ADD LICENSE HERE")
+            architectView?.setLicenseKey("xxx")
             //broken on purpose so it will not compile until  you add your Wikitude license
 
             
-            self.architectView?.loadArchitectWorldFromURL(NSBundle.mainBundle().URLForResource("index", withExtension: "html", subdirectory: "Web"), withRequiredFeatures: ._2DTracking)
+            self.architectView?.loadArchitectWorld(from: Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Web"), withRequiredFeatures: ._2DTracking)
             self.view.addSubview(architectView!)
             
-            NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {(notification) in
-                    dispatch_async(dispatch_get_main_queue(), {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: OperationQueue.main, using: {(notification) in
+                    DispatchQueue.main.async(execute: {
                         if self.architectWorldNavigation?.wasInterrupted == true{
                             self.architectView?.reloadArchitectWorld()
                         }
                         self.startWikitudeSDKRendering()
                     })
                 })
-            NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationWillResignActiveNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {(notification) in
-                dispatch_async(dispatch_get_main_queue(), {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationWillResignActive, object: nil, queue: OperationQueue.main, using: {(notification) in
+                DispatchQueue.main.async(execute: {
                     self.stopWikitudeSDKRendering()
                 })
             })
@@ -50,21 +50,21 @@ class ViewController: UIViewController, WTArchitectViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return .portrait
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
     func startWikitudeSDKRendering(){
         if self.architectView?.isRunning == false{
             self.architectView?.start({ configuration in
-                    configuration.captureDevicePosition = AVCaptureDevicePosition.Back
+                    configuration?.captureDevicePosition = AVCaptureDevicePosition.back
                 }, completion: {isRunning, error in
                     if !isRunning{
-                        print("WTArchitectView could not be started. Reason: \(error.localizedDescription)")
+                        print("WTArchitectView could not be started. Reason: \(error?.localizedDescription)")
                     }
             })
         }
@@ -76,7 +76,7 @@ class ViewController: UIViewController, WTArchitectViewDelegate{
         }
 
     }
-    func architectView(architectView: WTArchitectView!, invokedURL URL: NSURL!) {
+    func architectView(_ architectView: WTArchitectView!, invokedURL URL: Foundation.URL!) {
         //do shit here
         
 //        - (void)architectView:(WTArchitectView *)architectView invokedURL:(NSURL *)URL
@@ -101,13 +101,13 @@ class ViewController: UIViewController, WTArchitectViewDelegate{
     }
     
 
-    func architectView(architectView: WTArchitectView!, didFinishLoadArchitectWorldNavigation navigation: WTNavigation!) {
+    func architectView(_ architectView: WTArchitectView!, didFinishLoadArchitectWorldNavigation navigation: WTNavigation!) {
         //    /* Architect World did finish loading */
     }
-    func architectView(architectView: WTArchitectView!, didFailToLoadArchitectWorldNavigation navigation: WTNavigation!, withError error: NSError!) {
+    func architectView(_ architectView: WTArchitectView!, didFailToLoadArchitectWorldNavigation navigation: WTNavigation!, withError error: NSError!) {
         print("Architect World from URL \(navigation.originalURL) could not be loaded. Reason: \(error.localizedDescription)");
     }
-    func architectView(architectView: WTArchitectView!, didEncounterInternalError error: NSError!) {
+    func architectView(_ architectView: WTArchitectView!, didEncounterInternalError error: NSError!) {
         print("WTArchitectView encountered an internal error \(error.localizedDescription)");
     }
 }
