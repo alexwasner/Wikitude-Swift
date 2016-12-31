@@ -274,13 +274,16 @@
 				TargetAttributes = {
 					51B11F6B1CF7884500C96A1F = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 					51B11F7F1CF7884600C96A1F = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 51B11F6B1CF7884500C96A1F;
 					};
 					51B11F8A1CF7884600C96A1F = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 51B11F6B1CF7884500C96A1F;
 					};
 				};
@@ -494,6 +497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wasner.wikitude.Starter;
 				PRODUCT_NAME = WikitudeSwiftStarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "WikitudeSwiftStarter/WikitudeSwiftStarter-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -512,6 +516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wasner.wikitude.Starter;
 				PRODUCT_NAME = WikitudeSwiftStarter;
 				SWIFT_OBJC_BRIDGING_HEADER = "WikitudeSwiftStarter/WikitudeSwiftStarter-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -523,6 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.WikitudeSwiftStarterTests;
 				PRODUCT_NAME = WikitudeSwiftStarter;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WikitudeSwiftStarter.app/WikitudeSwiftStarter";
 			};
 			name = Debug;
@@ -535,6 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.WikitudeSwiftStarterTests;
 				PRODUCT_NAME = WikitudeSwiftStarter;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WikitudeSwiftStarter.app/WikitudeSwiftStarter";
 			};
 			name = Release;
@@ -546,6 +553,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.WikitudeSwiftStarterUITests;
 				PRODUCT_NAME = WikitudeSwiftStarter;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = WikitudeSwiftStarter;
 			};
 			name = Debug;
@@ -557,6 +565,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.WikitudeSwiftStarterUITests;
 				PRODUCT_NAME = WikitudeSwiftStarter;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = WikitudeSwiftStarter;
 			};
 			name = Release;
@@ -580,6 +589,7 @@
 				51B11F961CF7884600C96A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51B11F971CF7884600C96A1F /* Build configuration list for PBXNativeTarget "WikitudeSwiftStarterTests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +598,7 @@
 				51B11F991CF7884600C96A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51B11F9A1CF7884600C96A1F /* Build configuration list for PBXNativeTarget "WikitudeSwiftStarterUITests" */ = {
 			isa = XCConfigurationList;
@@ -596,6 +607,7 @@
 				51B11F9C1CF7884600C96A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
