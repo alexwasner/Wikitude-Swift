@@ -6,8 +6,8 @@
 //  Copyright © 2016 alexwasner. All rights reserved.
 //
 
-#ifndef WikitudeSwiftStarter-Bridging_Header_h
-#define WikitudeSwiftStarter-Bridging_Header_h
+#ifndef WikitudeSwiftStarter_Bridging_Header_h
+#define WikitudeSwiftStarter_Bridging_Header_h
 
 #import <WikitudeSDK/WikitudeSDK.h>
 #import <WikitudeSDK/WTArchitectViewDebugDelegate.h>
